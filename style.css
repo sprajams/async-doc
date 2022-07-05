@@ -52,7 +52,7 @@
   border-top: 1px solid grey;
   font-size: 1.2em;
 }
-.navbar__listItemLink {
+.nav-link {
   text-decoration: none;
   color: inherit;
 }
@@ -70,23 +70,23 @@
 .title {
   font-size: 1.5em;
 }
-.section {
+.main-section {
   padding: 20px 30px;
 }
-.section > p {
+.main-section > p {
   padding: 10px;
 }
 @media (min-width: 768px) {
-  .section {
+  .main-section {
     padding: 30px 50px 0;
   }
-  .section:last-child {
+  .main-section:last-child {
     padding-bottom: 30px;
   }
-  .section > p {
+  .main-section > p {
     padding: 15px 20px 0;
   }
-  .section > ul {
+  .main-section > ul {
     padding-top: 15px;
     padding-left: 65px;
   }

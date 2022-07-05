@@ -12,16 +12,55 @@
     <nav class="navbar">
       <h2 class="navbar__title">JS Documentation</h2>
       <ul class="navbar__list">
-        <li class="navbar__listItem"><a href="#" class="navbar__listItemLink" >Async JS overview</a></li>
-        <li class="navbar__listItem"><a href="#" class="navbar__listItemLink">Intro to async</a></li>
-        <li class="navbar__listItem"><a href="#" class="navbar__listItemLink">How to use promises</a></li>
-        <li class="navbar__listItem"><a href="#" class="navbar__listItemLink">Implementing a promise-based API</li>
-        <li class="navbar__listItem"><a href="#" class="navbar__listItemLink">Intoduing workers</a></li>
-        <li class="navbar__listItem"><a href="#" class="navbar__listItemLink">Reference</a></li>
+        <li class="navbar__listItem"><a href="#intro" class="navbar__listItemLink">Intro to async</a></li>
+        <li class="navbar__listItem"><a href="#promise" class="navbar__listItemLink">How to use promises</a></li>
+        <li class="navbar__listItem"><a href="#promise_cronstructor" class="navbar__listItemLink">The Promise() constructor</li>
+        <li class="navbar__listItem"><a href="#workers" class="navbar__listItemLink">Intoduing workers</a></li>
+        <li class="navbar__listItem"><a href="#reference" class="navbar__listItemLink">Reference</a></li>
       </ul>
     </nav>
-    <main>
-        <h2>Async JS overview</h2>
+    <main class="content">
+        <section class="section" id="intro">
+        <h2 class="title">Intoduction to asynchronous JavsScript</h2>
+        <p>Asynchronous programming is a technique that enables your program to start a potentially long-running task and still be able to be responsive to other events while that task runs, rather than having to wait until that task has finished. Once that task has finished, your program is presented with the result.</p>
+        <p>Many functions provided by browsers, especially the most interesting ones, can potentially take a long time, and therefore, are asynchronous. For example:</p>
+        <ul>
+            <li>Making HTTP requests using fetch()</li>
+            <li>Accessing a user's camera or microphone using getUserMedia()</li>
+            <li>Asking a user to select files using showOpenFilePicker() </li>
+        </ul>
+        </section>
+
+        <section class="section" id="promise">
+            <h2 class="title">How to use promises</h2>
+            <p>Promises are the foundation of asynchronous programming in modern JavaScript. A promise is an object returned by an asynchronous function, which represents the current state of the operation. At the time the promise is returned to the caller, the operation often isn't finished, but the promise object provides methods to handle the eventual success or failure of the operation.</p>
+            <p>With the fetch() API, once you get a Response object, you need to call another function to get the response data. In this case we want to get the response data as JSON, so we would call the json() method of the Response object. It turns out that json() is also asynchronous. So this is a case where we have to call two successive asynchronous functions.</p>           
+             <p>To support error handling, Promise objects provide a catch() method. This is a lot like then(): you call it and pass in a handler function. However, while the handler passed to then() is called when the asynchronous operation succeeds, the handler passed to catch() is called when the asynchronous operation fails.</p>
+         </section>
+
+         <section class="section" id="promise_cronstructor">
+            <h2 class="title">The Promise() constructor</h2>
+            <p>A Promise object is created using the new keyword and its constructor. This constructor takes a function, called the "executor function", as its parameter. This function should take two functions as parameters. The first of these functions (resolve) is called when the asynchronous task completes successfully and returns the results of the task as a value. The second (reject) is called when the task fails, and returns the reason for failure, which is typically an error object.</p>
+         </section>
+
+         <section class="section" id="workers">
+            <h2 class="title">Introducing workers</h2>
+            <p>Workers give you the ability to run some tasks in a different thread, so you can start the task, then continue with other processing (such as handling user actions).</p>
+            <p>But there's a price to pay for this. With multithreaded code, you never know when your thread will be suspended and the other thread will get a chance to run. So if both threads have access to the same variables, it's possible for a variable to change unexpectedly at any time, and this causes bugs that are hard to find.</p>
+            <p>To avoid these problems in the web, your main code and your worker code never get direct access to each others' variables. Workers and the main code run in completely separate worlds, and only interact by sending each other messages. In particular, this means that workers can't access the DOM (the window, document, page elements, and so on).</p>
+             <p>There are three different sorts of workers:
+            </p>
+            <ul>
+                <li>dedicated workers</li>
+                <li>shared workers</li>
+                <li>service workers</li>                   
+            </ul>
+        </section>
+
+        <section class="section" id="reference">
+            <h2 class="title">Reference</h2>
+            <p>All information taken directly from <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous">MDN</a></p>
+        </section>
     </main>
     <script src="index.js"></script>
   </body>

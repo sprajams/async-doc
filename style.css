@@ -5,15 +5,15 @@
 }
 
 .navbar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   border: 1px solid grey;
 }
 @media (min-width: 768px) {
   .navbar {
-    width: 235px;
+    position: fixed;
+    top: 0;
+    left: 0;
     height: 100%;
+    width: 235px;
   }
 }
 @media (min-width: 1024px) {
@@ -21,6 +21,7 @@
     width: 350px;
   }
 }
+
 .navbar__title,
 .navbar__list {
   width: 100%;
@@ -44,6 +45,7 @@
 @media (min-width: 768px) {
   .navbar__list {
     height: 100%;
+    position: sticky;
   }
 }
 .navbar__listItem {
@@ -53,4 +55,39 @@
 .navbar__listItemLink {
   text-decoration: none;
   color: inherit;
+}
+
+@media (min-width: 768px) {
+  .content {
+    margin-left: 235px;
+  }
+}
+@media (min-width: 1024px) {
+  .content {
+    margin-left: 350px;
+  }
+}
+.title {
+  font-size: 1.5em;
+}
+.section {
+  padding: 20px 30px;
+}
+.section > p {
+  padding: 10px;
+}
+@media (min-width: 768px) {
+  .section {
+    padding: 30px 50px 0;
+  }
+  .section:last-child {
+    padding-bottom: 30px;
+  }
+  .section > p {
+    padding: 15px 20px 0;
+  }
+  .section > ul {
+    padding-top: 15px;
+    padding-left: 65px;
+  }
 }
